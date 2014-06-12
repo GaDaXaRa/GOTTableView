@@ -138,6 +138,23 @@
     [self removePeronnajeFromModelAtIndexPath:[self.tableView indexPathForSelectedRow]];
 }
 
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    Casa *casaOrigen = [self.model.casas objectAtIndex:sourceIndexPath.section];
+    NSMutableArray *personajesOrigen = casaOrigen.personajes.mutableCopy;
+    Personaje *personajeOrigen = [casaOrigen.personajes objectAtIndex:sourceIndexPath.row];
+    [personajesOrigen removeObjectAtIndex:sourceIndexPath.row];
+    casaOrigen.personajes = personajesOrigen.copy;
+    
+    Casa *casaDestino = [self.model.casas objectAtIndex:destinationIndexPath.section];
+    NSMutableArray *personajesDestino = casaDestino.personajes.mutableCopy;      
+    [personajesDestino insertObject:personajeOrigen atIndex:destinationIndexPath.row];
+    casaDestino.personajes = personajesDestino.copy;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
 /*
  // Override to support conditional editing of the table view.
  - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
