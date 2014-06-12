@@ -96,6 +96,20 @@
     personajeController.personaje = selectedPersonaje;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    Casa *casa = [self.model.casas objectAtIndex:section];
+    UIImage *casaImage = [UIImage imageNamed:casa.imagen];
+    return casaImage.size.height / 2;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    Casa *casa = [self.model.casas objectAtIndex:section];
+    UIImage *casaImage = [UIImage imageNamed:casa.imagen];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:casaImage];
+    
+    return imageView;
+}
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
