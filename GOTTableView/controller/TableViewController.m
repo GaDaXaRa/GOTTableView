@@ -16,6 +16,7 @@
 @interface TableViewController ()
 
 @property (nonatomic, strong)GotModel *model;
+@property (nonatomic, strong)NSArray *resultadosFiltrados;
 @end
 
 @implementation TableViewController
@@ -56,25 +57,40 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    if (self.searchDisplayController.searchResultsTableView == tableView) {
+        return 1;
+    }
     return self.model.casas.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (self.searchDisplayController.searchResultsTableView == tableView) {
+        [self.resultadosFiltrados count];
+    }
+    
     Casa *casa = [self.model.casas objectAtIndex:section];
     return casa.personajes.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    GOTTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"celda_personaje" forIndexPath:indexPath];
+{ 
     
+    
+    if (self.searchDisplayController.searchResultsTableView == tableView) {
+        GOTTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"celdaPersonaje" forIndexPath:indexPath];
+        Personaje *personaje = [self.resultadosFiltrados objectAtIndex:indexPath.row];
+        cell.label.text = personaje.nombre;
+        cell.personajeView.image = [UIImage imageNamed:personaje.imagen];
+        return cell;
+    }
+    
+    GOTTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"celdaPersonaje" forIndexPath:indexPath];
     Casa *casa = [self.model.casas objectAtIndex:indexPath.section];
-    
     Personaje *personaje = [casa.personajes objectAtIndex:indexPath.row];
-    
     cell.label.text = personaje.nombre;
     cell.personajeView.image = [UIImage imageNamed:personaje.imagen];
+    
     
     return cell;
 }
@@ -85,13 +101,24 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    PersonajeViewController *personajeController = segue.destinationViewController;
-    personajeController.delegate = self;
-    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    Casa *casa = [self.model.casas objectAtIndex:indexPath.section];
-    Personaje *selectedPersonaje = [casa.personajes objectAtIndex:indexPath.row];
+    if ([segue.identifier isEqualToString:@"muestraDetalle"]) {
+        PersonajeViewController *personajeController = segue.destinationViewController;
+        personajeController.delegate = self;
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        Casa *casa = [self.model.casas objectAtIndex:indexPath.section];
+        Personaje *selectedPersonaje = [casa.personajes objectAtIndex:indexPath.row];
+        
+        personajeController.personaje = selectedPersonaje;
+    } else if ([segue.identifier isEqualToString:@"addSegue"]) {
+        UINavigationController *navigationController = segue.destinationViewController;
+        AddPersonajeTableViewController *addPersonajeController = navigationController.childViewControllers[0];
+        addPersonajeController.delegate = self;
+    }
     
-    personajeController.personaje = selectedPersonaje;
+}
+
+- (IBAction)backFromModal:(UIStoryboardSegue *)segue {
+    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -146,7 +173,7 @@
     casaOrigen.personajes = personajesOrigen.copy;
     
     Casa *casaDestino = [self.model.casas objectAtIndex:destinationIndexPath.section];
-    NSMutableArray *personajesDestino = casaDestino.personajes.mutableCopy;      
+    NSMutableArray *personajesDestino = casaDestino.personajes.mutableCopy;
     [personajesDestino insertObject:personajeOrigen atIndex:destinationIndexPath.row];
     casaDestino.personajes = personajesDestino.copy;
 }
@@ -155,53 +182,39 @@
     return YES;
 }
 
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
+- (void)addPersonaje:(Personaje *)personaje inCasa:(Casa *)casa {
+    int casaIndex = [self indexOfCasa:casa];
+    [self.tableView beginUpdates];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:casa.personajes.count inSection:casaIndex];
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    Casa *updatedCasa = [self.model.casas objectAtIndex:casaIndex];
+    NSMutableArray *personajes = updatedCasa.personajes.mutableCopy;
+    [personajes addObject:personaje];
+    updatedCasa.personajes = personajes.copy;
+    [self.tableView endUpdates];
+}
 
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
- {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- } else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
+- (NSUInteger) indexOfCasa:(Casa *)casa {
+    for (int i = 0; i < self.model.casas.count; i ++) {
+        Casa *casaAtIndex = self.model.casas[i];
+        if ([casaAtIndex.nombre isEqualToString:casa.nombre]) {
+            return i;
+        }
+    }
+    
+    return 0;
+}
 
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
- {
- }
- */
+- (void)filtraPersonajesPorCadenaDeTexto:(NSString *) busqueda {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"nombre contains[c] %@", busqueda];
+    NSArray *todos =  [self.model.casas valueForKeyPath:@"@distinctUnionOfArrays.personajes"];
+    self.resultadosFiltrados = [todos filteredArrayUsingPredicate:predicate];
+}
 
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+    [self filtraPersonajesPorCadenaDeTexto:searchString];
+    return YES;
+}
 
 @end

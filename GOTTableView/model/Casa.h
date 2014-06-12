@@ -14,5 +14,6 @@
 @property (nonatomic, strong) NSString* imagen;
 @property (nonatomic, strong) NSString* lema;
 @property (nonatomic, strong) NSArray* personajes;
+@property (nonatomic, strong) NSString* imageBig;
 - (void) addPersonaje:(Personaje *) personaje;
 @end

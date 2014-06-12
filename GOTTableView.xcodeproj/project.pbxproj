@@ -11,6 +11,16 @@
 		3F4957A419499CC300075A46 /* GOTTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4957A319499CC300075A46 /* GOTTableViewCell.m */; };
 		3F4957A71949AF0C00075A46 /* PersonajeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4957A61949AF0C00075A46 /* PersonajeViewController.m */; };
 		3F4957AB1949E09900075A46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F4957AA1949E09900075A46 /* Main.storyboard */; };
+		3F4957B11949F62400075A46 /* AddPersonajeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4957B01949F62400075A46 /* AddPersonajeTableViewController.m */; };
+		3F4957B41949FD7C00075A46 /* CasaSelectorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4957B31949FD7C00075A46 /* CasaSelectorTableViewController.m */; };
+		3FD1D3D7194A229300938C03 /* CasaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1D3D6194A229300938C03 /* CasaTableViewCell.m */; };
+		3FD1D3DF194A42BC00938C03 /* baratheon_g.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3FD1D3D8194A42BC00938C03 /* baratheon_g.jpg */; };
+		3FD1D3E0194A42BC00938C03 /* greyjoy_g.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3FD1D3D9194A42BC00938C03 /* greyjoy_g.jpg */; };
+		3FD1D3E1194A42BC00938C03 /* lannister_g.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3FD1D3DA194A42BC00938C03 /* lannister_g.jpg */; };
+		3FD1D3E2194A42BC00938C03 /* stark_g.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3FD1D3DB194A42BC00938C03 /* stark_g.jpg */; };
+		3FD1D3E3194A42BC00938C03 /* targaryen_g.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3FD1D3DC194A42BC00938C03 /* targaryen_g.jpg */; };
+		3FD1D3E4194A42BC00938C03 /* tully_g.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3FD1D3DD194A42BC00938C03 /* tully_g.jpg */; };
+		3FD1D3E5194A42BC00938C03 /* tyrell_g.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3FD1D3DE194A42BC00938C03 /* tyrell_g.jpg */; };
 		8C2E8E5D1946FE2A00D41ED9 /* aemon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C2E8DFF1946FE2A00D41ED9 /* aemon.png */; };
 		8C2E8E5E1946FE2A00D41ED9 /* aerys.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C2E8E001946FE2A00D41ED9 /* aerys.png */; };
 		8C2E8E5F1946FE2A00D41ED9 /* alliser.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C2E8E011946FE2A00D41ED9 /* alliser.png */; };
@@ -141,6 +151,19 @@
 		3F4957A51949AF0C00075A46 /* PersonajeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonajeViewController.h; sourceTree = "<group>"; };
 		3F4957A61949AF0C00075A46 /* PersonajeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonajeViewController.m; sourceTree = "<group>"; };
 		3F4957AA1949E09900075A46 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		3F4957AF1949F62400075A46 /* AddPersonajeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPersonajeTableViewController.h; sourceTree = "<group>"; };
+		3F4957B01949F62400075A46 /* AddPersonajeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPersonajeTableViewController.m; sourceTree = "<group>"; };
+		3F4957B21949FD7C00075A46 /* CasaSelectorTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CasaSelectorTableViewController.h; sourceTree = "<group>"; };
+		3F4957B31949FD7C00075A46 /* CasaSelectorTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasaSelectorTableViewController.m; sourceTree = "<group>"; };
+		3FD1D3D5194A229300938C03 /* CasaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CasaTableViewCell.h; sourceTree = "<group>"; };
+		3FD1D3D6194A229300938C03 /* CasaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasaTableViewCell.m; sourceTree = "<group>"; };
+		3FD1D3D8194A42BC00938C03 /* baratheon_g.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = baratheon_g.jpg; sourceTree = "<group>"; };
+		3FD1D3D9194A42BC00938C03 /* greyjoy_g.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = greyjoy_g.jpg; sourceTree = "<group>"; };
+		3FD1D3DA194A42BC00938C03 /* lannister_g.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lannister_g.jpg; sourceTree = "<group>"; };
+		3FD1D3DB194A42BC00938C03 /* stark_g.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stark_g.jpg; sourceTree = "<group>"; };
+		3FD1D3DC194A42BC00938C03 /* targaryen_g.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = targaryen_g.jpg; sourceTree = "<group>"; };
+		3FD1D3DD194A42BC00938C03 /* tully_g.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tully_g.jpg; sourceTree = "<group>"; };
+		3FD1D3DE194A42BC00938C03 /* tyrell_g.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tyrell_g.jpg; sourceTree = "<group>"; };
 		8C2E8DFF1946FE2A00D41ED9 /* aemon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aemon.png; sourceTree = "<group>"; };
 		8C2E8E001946FE2A00D41ED9 /* aerys.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aerys.png; sourceTree = "<group>"; };
 		8C2E8E011946FE2A00D41ED9 /* alliser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alliser.png; sourceTree = "<group>"; };
@@ -291,6 +314,10 @@
 				3F4957A019498FC100075A46 /* TableViewController.m */,
 				3F4957A51949AF0C00075A46 /* PersonajeViewController.h */,
 				3F4957A61949AF0C00075A46 /* PersonajeViewController.m */,
+				3F4957AF1949F62400075A46 /* AddPersonajeTableViewController.h */,
+				3F4957B01949F62400075A46 /* AddPersonajeTableViewController.m */,
+				3F4957B21949FD7C00075A46 /* CasaSelectorTableViewController.h */,
+				3F4957B31949FD7C00075A46 /* CasaSelectorTableViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -301,6 +328,8 @@
 				3F4957AA1949E09900075A46 /* Main.storyboard */,
 				3F4957A219499CC300075A46 /* GOTTableViewCell.h */,
 				3F4957A319499CC300075A46 /* GOTTableViewCell.m */,
+				3FD1D3D5194A229300938C03 /* CasaTableViewCell.h */,
+				3FD1D3D6194A229300938C03 /* CasaTableViewCell.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -308,6 +337,13 @@
 		8C2E8DFE1946FE2A00D41ED9 /* imgs */ = {
 			isa = PBXGroup;
 			children = (
+				3FD1D3D8194A42BC00938C03 /* baratheon_g.jpg */,
+				3FD1D3D9194A42BC00938C03 /* greyjoy_g.jpg */,
+				3FD1D3DA194A42BC00938C03 /* lannister_g.jpg */,
+				3FD1D3DB194A42BC00938C03 /* stark_g.jpg */,
+				3FD1D3DC194A42BC00938C03 /* targaryen_g.jpg */,
+				3FD1D3DD194A42BC00938C03 /* tully_g.jpg */,
+				3FD1D3DE194A42BC00938C03 /* tyrell_g.jpg */,
 				8C2E8DFF1946FE2A00D41ED9 /* aemon.png */,
 				8C2E8E001946FE2A00D41ED9 /* aerys.png */,
 				8C2E8E011946FE2A00D41ED9 /* alliser.png */,
@@ -595,6 +631,7 @@
 				8C2E8E981946FE2A00D41ED9 /* ramsay.png in Resources */,
 				8C2E8E911946FE2A00D41ED9 /* myrcella.png in Resources */,
 				8C2E8EA01946FE2A00D41ED9 /* roose.png in Resources */,
+				3FD1D3E1194A42BC00938C03 /* lannister_g.jpg in Resources */,
 				8C2E8EA61946FE2A00D41ED9 /* stannis.png in Resources */,
 				8C2E8E851946FE2A00D41ED9 /* joyeuse.png in Resources */,
 				8C2E8E651946FE2A00D41ED9 /* baratheon.png in Resources */,
@@ -614,9 +651,11 @@
 				8C2E8EB31946FE2A00D41ED9 /* tyrell.png in Resources */,
 				8C2E8E601946FE2A00D41ED9 /* alton.png in Resources */,
 				8C2E8EA91946FE2A00D41ED9 /* styr.png in Resources */,
+				3FD1D3E5194A42BC00938C03 /* tyrell_g.jpg in Resources */,
 				8C2E8E5E1946FE2A00D41ED9 /* aerys.png in Resources */,
 				8C2E8EA71946FE2A00D41ED9 /* stark.jpg in Resources */,
 				8C2E8E641946FE2A00D41ED9 /* baratheon.jpg in Resources */,
+				3FD1D3E0194A42BC00938C03 /* greyjoy_g.jpg in Resources */,
 				8C2E8E8A1946FE2A00D41ED9 /* loras.png in Resources */,
 				8C2E8E6C1946FE2A00D41ED9 /* cersei.png in Resources */,
 				8C2E8EAB1946FE2A00D41ED9 /* talisa.png in Resources */,
@@ -635,12 +674,14 @@
 				8C2E8EA41946FE2A00D41ED9 /* sansa.png in Resources */,
 				8C2E8E9D1946FE2A00D41ED9 /* robb.png in Resources */,
 				8C2E8EB51946FE2A00D41ED9 /* tywin.png in Resources */,
+				3FD1D3E2194A42BC00938C03 /* stark_g.jpg in Resources */,
 				8C2E8E7D1946FE2A00D41ED9 /* jaime.png in Resources */,
 				8C2E8E611946FE2A00D41ED9 /* arryn.png in Resources */,
 				8C2E8E5D1946FE2A00D41ED9 /* aemon.png in Resources */,
 				8C2E8E621946FE2A00D41ED9 /* arya.png in Resources */,
 				8C2E8E9A1946FE2A00D41ED9 /* renly.png in Resources */,
 				8C2E8E891946FE2A00D41ED9 /* lannister.png in Resources */,
+				3FD1D3E3194A42BC00938C03 /* targaryen_g.jpg in Resources */,
 				8C2E8EB81946FE2A00D41ED9 /* walder.png in Resources */,
 				8C2E8E961946FE2A00D41ED9 /* podrick.png in Resources */,
 				8C2E8E681946FE2A00D41ED9 /* bolton.png in Resources */,
@@ -648,7 +689,9 @@
 				8C2E8E971946FE2A00D41ED9 /* pypar.png in Resources */,
 				8C2E8E781946FE2A00D41ED9 /* grenn.png in Resources */,
 				8C5026421946E511009D2C47 /* InfoPlist.strings in Resources */,
+				3FD1D3E4194A42BC00938C03 /* tully_g.jpg in Resources */,
 				8C2E8E7F1946FE2A00D41ED9 /* jaqen.png in Resources */,
+				3FD1D3DF194A42BC00938C03 /* baratheon_g.jpg in Resources */,
 				8C2E8E8D1946FE2A00D41ED9 /* margaery.png in Resources */,
 				8C2E8E751946FE2A00D41ED9 /* gendry.png in Resources */,
 				8C2E8EB71946FE2A00D41ED9 /* viserys.png in Resources */,
@@ -694,10 +737,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F4957B41949FD7C00075A46 /* CasaSelectorTableViewController.m in Sources */,
 				8CD142D41946E790003AE87B /* Casa.m in Sources */,
+				3FD1D3D7194A229300938C03 /* CasaTableViewCell.m in Sources */,
 				3F4957A119498FC100075A46 /* TableViewController.m in Sources */,
 				3F4957A71949AF0C00075A46 /* PersonajeViewController.m in Sources */,
 				8CD142D11946E592003AE87B /* GotModel.m in Sources */,
+				3F4957B11949F62400075A46 /* AddPersonajeTableViewController.m in Sources */,
 				3F4957A419499CC300075A46 /* GOTTableViewCell.m in Sources */,
 				8C5026481946E511009D2C47 /* AppDelegate.m in Sources */,
 				8C5026441946E511009D2C47 /* main.m in Sources */,

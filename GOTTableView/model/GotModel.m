@@ -53,6 +53,7 @@
         casa.nombre = [casaDict valueForKey:@"name"];
         casa.lema = [casaDict valueForKey:@"theme"];
         casa.imagen = [casaDict valueForKey:@"image"];
+        casa.imageBig = [casaDict valueForKey:@"imageBig"];
         
         NSArray* personajes = [casaDict valueForKey:@"people"];
         for (NSDictionary* personajeDict in personajes) {
