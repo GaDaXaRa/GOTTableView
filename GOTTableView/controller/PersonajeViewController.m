@@ -47,6 +47,11 @@
     self.personajeImage.layer.borderWidth = 2.0;
 }
 
+- (IBAction)matarButton:(id)sender {
+    [self.delegate matarPersonaje];    
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
 /*
 #pragma mark - Navigation
 

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PersonajeViewController.h"
 
-@interface TableViewController : UITableViewController<UITableViewDelegate>
+@interface TableViewController : UITableViewController<UITableViewDelegate, MatarDelegate>
 
 @end
