@@ -79,22 +79,18 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZj-ix-t4p">
-                                <rect key="frame" x="135" y="518" width="50" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Matar">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="matarButton:" destination="HXi-yu-xeG" eventType="touchUpInside" id="Pau-Gl-HU4"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="mzj-fe-HSU"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="mzj-fe-HSU">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="ecS-ar-Z7N">
+                            <connections>
+                                <action selector="matarButton:" destination="HXi-yu-xeG" id="8ne-Se-T96"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="personajeDescription" destination="17a-v6-sbw" id="iGT-iJ-wio"/>
                         <outlet property="personajeImage" destination="DeR-3g-vs9" id="b53-1R-0nT"/>

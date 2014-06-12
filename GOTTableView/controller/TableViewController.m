@@ -110,16 +110,15 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    [self.tableView beginUpdates];
+    
     if (editingStyle == UITableViewCellEditingStyleDelete ) {
         [self removePeronnajeFromModelAtIndexPath:indexPath];
         
-        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
-    [self.tableView endUpdates];
 }
 
 - (void)removePeronnajeFromModelAtIndexPath:(NSIndexPath *)indexPath {
+    [self.tableView beginUpdates];
     Casa *casa = [self.model.casas objectAtIndex:indexPath.section];
     Personaje *personaje = [casa.personajes objectAtIndex:indexPath.row];
     
@@ -127,6 +126,8 @@
     [personajesArray removeObject:personaje];
     
     casa.personajes = personajesArray.copy;
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView endUpdates];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -134,9 +135,7 @@
 }
 
 - (void)matarPersonaje {
-    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    [self removePeronnajeFromModelAtIndexPath:indexPath];
-    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];    
+    [self removePeronnajeFromModelAtIndexPath:[self.tableView indexPathForSelectedRow]];
 }
 
 /*
